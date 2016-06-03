@@ -1,4 +1,8 @@
 - hosts: all
   tasks:
-    - scan_packages:
     - scan_services:
+    - scan_files:
+        paths: '/'
+        get_checksum: false
+        recursive: false
+    - scan_packages:
