@@ -1,0 +1,7 @@
+- hosts: all
+  tasks:
+    - name: 'EXPECTED: no logging | WHEN: task-level no_log present with async task arg'
+      async: 10
+      poll: 1
+      shell: echo "DO_NOT_LOG_ASYNC_TASK_SUCCEEDED"
+      no_log: true
