@@ -4,8 +4,8 @@ from requests.auth import HTTPBasicAuth
 from pprint import pprint
 
 
-def get(domain, user, password, team):
-    endpoint = '/api/v1/groups/{}/'.format(team)
+def get(domain, user, password, group):
+    endpoint = '/api/v1/groups/{}/'.format(group)
     response = requests.get('https://{}{}'.format(domain, endpoint),
         auth=HTTPBasicAuth(user, password), verify=False)
     print response.status_code
@@ -19,7 +19,7 @@ def get(domain, user, password, team):
                 return False
     return True
 
-def ad_hoc(domain, user, password, team):
+def ad_hoc(domain, user, password, group):
     data = """{"job_type": "run",
         "credential": null,
         "module_name": "",
@@ -31,33 +31,33 @@ def ad_hoc(domain, user, password, team):
         "inventory": null,
         "limit": ""}"""
     response = requests.post('https://{}/api/v1/groups/{}/ad_hoc_commands/'.
-        format(domain, team), auth=HTTPBasicAuth(user, password), verify=False,
+        format(domain, group), auth=HTTPBasicAuth(user, password), verify=False,
         data=data, headers={'Content-Type': 'application/json'})
     print response.status_code
     return response.status_code != 403
 
-def edit(domain, user, password, team):
+def edit(domain, user, password, group):
     data='{"description": "hehe"}'
     response = requests.patch('https://{}/api/v1/groups/{}/'.
-        format(domain, team), auth=HTTPBasicAuth(user, password),
+        format(domain, group), auth=HTTPBasicAuth(user, password),
         verify=False, data=data, headers={'Content-Type': 'application/json'})
     print response.status_code
     return response.status_code != 403
 
-def update_children(domain, user, password, team):
+def update_children(domain, user, password, group):
     data = """{"name": "fgsgsgregregesr",
         "description": "",
         "inventory": null,
         "variables": ""}"""
     response = requests.post('https://{}/api/v1/groups/{}/children/'.
-        format(domain, team), auth=HTTPBasicAuth(user, password), verify=False,
+        format(domain, group), auth=HTTPBasicAuth(user, password), verify=False,
         data=data, headers={'Content-Type': 'application/json'})
     print response.status_code
     return response.status_code != 403
 
-def delete(domain, user, password, team):
+def delete(domain, user, password, group):
     response = requests.delete('https://{}/api/v1/groups/{}/'.
-        format(domain, team), auth=HTTPBasicAuth(user, password), verify=False)
+        format(domain, group), auth=HTTPBasicAuth(user, password), verify=False)
     print response.status_code
     return response.status_code != 403
 
