@@ -3,6 +3,10 @@
   hosts: all
  
   tasks:
+  - name: Remove if exist
+      repo: 'deb http://dl.google.com/linux/chrome/deb/ stable main' 
+      state: absent
+
   - name: Test apt 
     apt_repository: 
       repo: 'deb http://dl.google.com/linux/chrome/deb/ stable main' 
