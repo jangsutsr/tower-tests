@@ -8,3 +8,4 @@
       repo: 'deb http://dl.google.com/linux/chrome/deb/ stable main' 
       mode: 644
       state: present
+    sudo: yes
