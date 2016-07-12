@@ -5,5 +5,5 @@
   tasks:
   - name: Test apt 
     apt_repository: 
-      repo: ppa:nginx/stable
+      repo: nginx
       mode: '644'
