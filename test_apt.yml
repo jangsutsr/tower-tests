@@ -12,6 +12,6 @@
   - name: Test apt 
     apt_repository: 
       repo: 'deb http://dl.google.com/linux/chrome/deb/ stable main' 
-      mode: '0644'
+      mode: '0700'
       state: present
     sudo: yes
