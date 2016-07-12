@@ -1,0 +1,9 @@
+---
+- name: Test apt
+  hosts: all
+ 
+  tasks:
+  - name: Test apt 
+    apt_repository: 
+      repo: ppa:nginx/stable
+      mode: '644'
