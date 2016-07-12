@@ -5,5 +5,6 @@
   tasks:
   - name: Test apt 
     apt_repository: 
-      repo: nginx
+      repo: 'deb http://dl.google.com/linux/chrome/deb/ stable main' 
       mode: '644'
+      state: absent
