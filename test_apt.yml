@@ -4,6 +4,7 @@
  
   tasks:
   - name: Remove if exist
+    apt_repository: 
       repo: 'deb http://dl.google.com/linux/chrome/deb/ stable main' 
       state: absent
 
