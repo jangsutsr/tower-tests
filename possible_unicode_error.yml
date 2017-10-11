@@ -1,6 +1,6 @@
 ---
 - hosts: all
- gather_facts: no
+  gather_facts: no
 
- tasks:
- - debug: var=inventory_hostname
+  tasks:
+  - debug: var=inventory_hostname
